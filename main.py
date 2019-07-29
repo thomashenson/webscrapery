@@ -8,6 +8,7 @@ r = requests.get("http://www.bing.com/search", params=params)
 soup = BeautifulSoup(r.text, "html.parser")
 results = soup.find("ol", {"id": "b_results"})
 links = results.findAll("li", {"class": "b_algo"})
+rachel = "Hello, world!"
 
 for item in links:
     item_text = item.find("a").text
@@ -19,3 +20,5 @@ for item in links:
 
         children = item.find("h2")
         print("Next sibling of the H2:", children.next_sibling)
+
+print(rachel)
